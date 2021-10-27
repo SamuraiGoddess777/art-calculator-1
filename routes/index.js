@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.send({ message: "hello"});
+  res.send({ message: "Art commision calculator"});
 });
 
 module.exports = router;
