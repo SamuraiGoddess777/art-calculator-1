@@ -1,79 +1,63 @@
-import React, { useEffect, useState} from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
 import './App.css';
-import charsList from './components/charsList';
-import resultssList from './components/results.List';
-
-
-
-
+import Calculator from './components/Calculator';
 
 
 export default function App() {
-  let [characters, setCharacters] = useState([]);
+//   let [characters, setCharacters] = useState([]);
 
- const [char, setChar] = useState ({
-   model: "",
-   vtube:"",
-   pet:0,
-   bg:0,
-   price:"0",
-   image:"",
-   description:""
- }) 
-
- const calculate = () => {
-
- }
+//  const [char, setChar] = useState ({
+//    model: "",
+//    vtube:"",
+//    pet:0,
+//    bg:0,
+//    price:"0",
+//    image:"",
+//    description:""
+//  }) 
 
 
- //  <radio value={} onClick={handleClick}></radio>
-
- useEffect(() => {
-  getCharacters();
- }, []);
+//  useEffect(() => {
+//   getCharacters();
+//  }, []);
 
 
- const getCharacters = () => {
-  fetch("/characters")
-  .then(res => res.json())
-  .then(characters => {
-    console.log(characters)
-    setCharacters(characters);
-  })
-  .catch(error => {
-    console.log(error);
-  });
- };
+//  const getCharacters = () => {
+//   fetch("/characters")
+//   .then(res => res.json())
+//   .then(characters => {
+//     console.log(characters)
+//     setCharacters(characters);
+//   })
+//   .catch(error => {
+//     console.log(error);
+//   });
+//  };
 
- async function addCharacter (character){
-  let variants = {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify(character)
-  }
+//  async function addCharacter (character){
+//   let variants = {
+//     method: "POST",
+//     headers: {"Content-Type": "application/json"},
+//     body: JSON.stringify(character)
+//   }
 
-  try {
-    let response = await fetch('/',variants);
-    let characters = await response.json();
-    setCharacters(characters);
-  } catch (error) {
-  console.log(error)
-  }
- }
+//   try {
+//     let response = await fetch('/',variants);
+//     let characters = await response.json();
+//     setCharacters(characters);
+//   } catch (error) {
+//   console.log(error)
+//   }
+//  }
 
   return (
     <div className="App">
       <header className="App-header">
-        	<h1 class="heading-title">Art commission calculator</h1>
+        	<h1 className="heading-title">Art commission calculator</h1>
       </header>
-      <label>
-      <img src={`/images/char1.jpg`}></img>
-      
-      <img src={`/images/vtube1.jpg`}></img>
-      </label>
+
+      <Calculator />
   	</div>
-  
   );
 }
 
