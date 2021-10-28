@@ -5,6 +5,10 @@ import charsList from './components/charsList';
 import resultssList from './components/results.List';
 
 
+
+
+
+
 export default function App() {
   let [characters, setCharacters] = useState([]);
 
@@ -23,7 +27,7 @@ export default function App() {
  }
 
 
-//  <radio value={} onClick={handleClick}></radio>
+ //  <radio value={} onClick={handleClick}></radio>
 
  useEffect(() => {
   getCharacters();
@@ -40,9 +44,9 @@ export default function App() {
   .catch(error => {
     console.log(error);
   });
-};
+ };
 
-async function addCharacter (character){
+ async function addCharacter (character){
   let variants = {
     method: "POST",
     headers: {"Content-Type": "application/json"},
@@ -59,12 +63,17 @@ async function addCharacter (character){
  }
 
   return (
-    <div class="heading">
-						<h1 class="heading-title">Art commission calculator</h1>
-					</div>
-
-          
+    <div className="App">
+      <header className="App-header">
+        	<h1 class="heading-title">Art commission calculator</h1>
+      </header>
+      <label>
+      <img src={`/images/char1.jpg`}></img>
+      
+      <img src={`/images/vtube1.jpg`}></img>
+      </label>
+  	</div>
+  
   );
-
 }
 

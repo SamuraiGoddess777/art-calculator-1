@@ -19,13 +19,13 @@ router.get('/', async function(req, res, next) {
 
 /* insert a new char */
 router.post('/', async function(req, res, next) {
-  // 
+  
   await db(`INSERT INTO characters (model, vtube, pet, bg, price, image, description) VALUES 
   ("${req.body.model}",
   "${req.body.vtube}",
-  ${req.body.pet},
-  ${req.body.bg},
-  ${req.body.price},
+   ${req.body.pet},
+   ${req.body.bg},
+   ${req.body.price},
   "${req.body.image}",
   "${req.body.description}");`
   )
