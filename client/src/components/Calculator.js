@@ -4,13 +4,15 @@ import char1 from '../images/char1.jpg';
 import vtube1 from '../images/vtube1.jpg';
 import pet1 from '../images/pet1.jpg';
 import bg1 from '../images/bg1.jpg';
+import Dropdown from 'react-bootstrap/Dropdown'
 
 
 let InitialValues = {
     type: 0,
     variant: 1,
     pet: 0,
-    bg: 0
+    bg: 0,
+    vtube: 0
 };
 
 
@@ -37,10 +39,25 @@ function Calculator(props) {
         setValues(values => newValues);
     }
 
-    function calculate(newValues) {
-        let total = (newValues.type * newValues.variant) + newValues.pet + newValues.bg;
-        setTotal(total);
+    function handleVtubeChange(event) {
+        let newValues = { ...values, vtube: Number(event.target.value) };
+        calculate(newValues);
+        setValues(values => newValues);
     }
+
+    function calculate(newValues) {
+        let total = (newValues.type * newValues.variant) + newValues.pet + newValues.bg; {
+            if ( newValues.type === 150.00 ) {
+                 total += newValues.vtube; 
+            // compute the total WITHOUT the vtube menu
+            // if type is 150 (the price of vtube)
+            //     add the vtube menu value to total
+            // call setTotal() to update state
+            //         }   
+        }
+        }
+        setTotal(total);   
+}
 
     return (
         <div className="Calculator">
@@ -64,9 +81,31 @@ function Calculator(props) {
                                 <img src={vtube1} alt="vtube1" height="150" width="150" />
                                 <div className="title-lite">
                                     V-Tube model
-                                    <span className="note">price: 150 €</span>
+                                    <div className="menu-item">
+                                    <span className="note" name="vtube">price: 150 €</span>
+                                    <select value={values.vtube} onChange={handleVtubeChange}>
+                                    <option value="">Choose One</option>
+                                    <option value="100.12">Art Only HS (100.12€)</option>
+                                    <option value="116.82">Art Only Bust (116.82€)</option>
+                                    <option value="137.67">Art Only HB (137.67€)</option>
+                                    <option value="166.88">Art Only FB (166.88€)</option>
+                                    <option value="200.25">Art and Rig HS (200.25€)</option>
+                                    <option value="233.63">Art and Rig Bust (233.63€)</option>
+                                    <option value="275.35">Art and Rig HB (275.35€)</option>
+                                    <option value="333.76">Art and Rig FB (333.76€)</option>
+                                    <option value="100.12">Rigging Only HS (100.12€)</option>
+                                    <option value="116.82">Rigging Only Bust (116.82€)</option>
+                                    <option value="137.67">Rigging Only HB (137.67€)</option>
+                                    <option value="166.88">Rigging Only FB  (166.88€)</option>
+                                    <option value="15.64">Expression Rig Only (15.64€)</option>
+                                    <option value="15.64">Expression Art Only (15.64€)</option>
+                                    <option value="31.28">Expression Rig And Art (31.28€)</option>
+                                    <option value="57.37">Reserved CH. Sheet (57.37€)</option>
+                                    </select>
+                                    </div>
                                 </div>
-                            </label>
+                            </label >
+                            
                         </div> 
                         
                         

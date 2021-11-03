@@ -208,16 +208,11 @@ h6 {
 	font-weight: 300;
 }
 
-
-
 .variants-wrapper {
 	display: flex;
 	flex-direction: start;
 	align-items: center;
 }
-
-
-
 
 .variants-radio-real {
 	opacity: 0;
@@ -243,3 +238,8 @@ h6 {
 .variants-radio-real:checked + .variants-radio-fake {
 	background-color: #fbd422;
 }
+
+.menu-item{
+	transition: background-color var(--speed);
+}
+
